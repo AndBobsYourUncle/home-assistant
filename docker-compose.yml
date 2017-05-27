@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  nginx-proxy:
+    image: lroguet/rpi-nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    networks:
+      - nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true
+  lets-encrypt:
+    image: andbobsyouruncle/letsencrypt-nginx-proxy-companion
+    container_name: lets-encrypt
+    restart: always
+    networks:
+      - nginx
+    depends_on:
+      - nginx-proxy
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - ./certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  nginx:
+    external:
+      name: nginx
