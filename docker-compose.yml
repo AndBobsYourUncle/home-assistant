@@ -30,6 +30,17 @@ services:
     volumes:
       - ./certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
+  busybox:
+    image: hypriot/rpi-busybox-httpd
+    container_name: busybox
+    restart: always
+    networks:
+      - nginx
+    depends_on:
+      - nginx-proxy
+    environment:
+      - VIRTUAL_HOST=raspberrypi.local
+      - VIRTUAL_PORT=80
 
 networks:
   nginx:
