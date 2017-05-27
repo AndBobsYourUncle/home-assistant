@@ -41,6 +41,13 @@ services:
     environment:
       - VIRTUAL_HOST=raspberrypi.local
       - VIRTUAL_PORT=80
+  noip:
+    image: coppit/no-ip
+    container_name: no-ip
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./noip_config:/config
 
 networks:
   nginx:
