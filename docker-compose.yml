@@ -41,6 +41,8 @@ services:
     environment:
       - VIRTUAL_HOST=raspberrypi.local
       - VIRTUAL_PORT=8123
+      - LETSENCRYPT_HOST=raspberrypi.local
+      - LETSENCRYPT_EMAIL=theboss@raspberrypi.local
   noip:
     image: andbobsyouruncle/noip-docker-raspberrypi
     container_name: noip
