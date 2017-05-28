@@ -30,9 +30,9 @@ services:
     volumes:
       - ./certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
-  busybox:
-    image: hypriot/rpi-busybox-httpd
-    container_name: busybox
+  home-assistant:
+    image: homeassistant/home-assistant
+    container_name: home-assistant
     restart: always
     networks:
       - nginx
@@ -40,7 +40,7 @@ services:
       - nginx-proxy
     environment:
       - VIRTUAL_HOST=raspberrypi.local
-      - VIRTUAL_PORT=80
+      - VIRTUAL_PORT=8123
   noip:
     image: andbobsyouruncle/noip-docker-raspberrypi
     container_name: noip
