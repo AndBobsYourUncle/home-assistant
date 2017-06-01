@@ -38,6 +38,8 @@ services:
       - nginx
     depends_on:
       - nginx-proxy
+    volumes:
+      - ./home-assistant:/config
     environment:
       - VIRTUAL_HOST=raspberrypi.local
       - VIRTUAL_PORT=8123
