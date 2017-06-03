@@ -36,6 +36,7 @@ services:
     restart: always
     networks:
       - nginx
+      - home-assistant
     depends_on:
       - nginx-proxy
     volumes:
@@ -56,3 +57,6 @@ networks:
   nginx:
     external:
       name: nginx
+  home-assistant:
+    external:
+      name: home-assistant
