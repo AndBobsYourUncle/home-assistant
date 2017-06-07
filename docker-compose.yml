@@ -58,6 +58,9 @@ services:
     container_name: rpi-homebridge
     network_mode: host
     restart: always
+    ports:
+      - 51826:51826
+      - 5353:5353
     environment:
       - HOME_ASSISTANT_URL=${HOME_ASSISTANT_URL}
       - HOME_ASSISTANT_PASSWORD=${HOME_ASSISTANT_PASSWORD}
