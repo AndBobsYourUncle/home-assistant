@@ -19,13 +19,16 @@ This is a complete solution that will get you all set up and ready to install th
 	* `docker network create nginx`
 	* `docker network create home-assistant`	
 * Setup a NoIP account, and register any hostname you'd like.
-* Set global environment variables for these things:
+* Set global environment variables for these things ([RPI Environment Variables](https://raspberrypi.stackexchange.com/questions/62548/setting-environment-variable-for-service):
 	* `HOME_ASSISTANT_HOST` (NoIP hostname)
 	* `HOME_ASSISTANT_URL` (`https://HOME_ASSISTANT_HOST`)
 	* `HOME_ASSISTANT_PASSWORD` (A very secure password)
 	* `LETS_ENCRYPT_EMAIL` (Your email address to generate SSL)
 	* `NOIP_USER` (Username for NoIP)
 	* `NOIP_PASSWORD` (Password for NoIP)
+* Clone this repository and go into the cloned repository folder:
+	* `git clone https://github.com/AndBobsYourUncle/home-assistant`
+	* `cd home-assistant`
 * Run `docker-compose up -d` (You will have to wait a long time for SSL certificates to be generated)
 * Set a Home Assistant password:
 	* Run `sudo nano home-assistant/configuration.yaml`
