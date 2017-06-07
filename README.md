@@ -12,7 +12,9 @@ This is a complete solution that will get you all set up and ready to install th
 * NoIP docker container to automatically send your home's IP address to NoIP
 
 ## Installing
-* Install Docker and Docker Compose on target machine
+* Install Docker and Docker Compose on target machine:
+	* Docker installation on PI: [RPI Docker Installation](http://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/)
+	* Docker-Compose: [RPI Docker Compose Installation](https://www.berthon.eu/2017/getting-docker-compose-on-raspberry-pi-arm-the-easy-way/)
 * Setup a NoIP account, and register any hostname you'd like.
 * Set global environment variables for these things:
 	* `HOME_ASSISTANT_HOST` (NoIP hostname)
@@ -21,11 +23,12 @@ This is a complete solution that will get you all set up and ready to install th
 	* `LETS_ENCRYPT_EMAIL` (Your email address to generate SSL)
 	* `NOIP_USER` (Username for NoIP)
 	* `NOIP_PASSWORD` (Password for NoIP)
-* Run `docker-compose up -d`
+* Run `docker-compose up -d` (You will have to wait a long time for SSL certificates to be generated)
 * Set a Home Assistant password:
 	* Run `sudo nano home-assistant/configuration.yaml`
 	* Set the `api_password` to match the `HOME_ASSISTANT_PASSWORD` environment variable you chose.
 * Run `docker-compose restart`
+* Now you run `sudo nano home-assistant/configuration.yaml`, edit your Home Assistant configuration, and then run `docker-compose restart` anytime you need to have it add new devices/automations.
 
 ## Containers Used
 This setup utilizes many docker images that I've forked and built so that it all runs on the Raspberry PI. Here's the info for each one, and their dependency chains. These will automatically get pulled during installation.
