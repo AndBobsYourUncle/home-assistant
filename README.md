@@ -1,5 +1,14 @@
 # Complete Home Assistant in Docker
-A way to get Home Assistant running in Docker on a Raspberry PI
+A way to get Home Assistant running in Docker on a Raspberry PI. Everything is in Docker containers, so the Raspberry PI needs no installed dependencies besides Docker. 
+
+This is a complete solution that will get you all set up and ready to install the Home Assistant iOS app, and start automating. You'll have a secure SSL connection to Home Assistant over the Internet, and a HomeKit bridge to allow any devices in Home Assistant to be controlled via Siri.
+
+### Technology Stack
+
+* Home Assistant
+* Nginx, and a docker reverse proxy, to allow the Home Assistant to be reachable on a hostname.
+* LetsEncrypt for auto-generating SSL certificates for the docker container running Home Assistant
+* NoIP docker container to automatically send your home's IP address to NoIP
 
 ## Installing
 * Install Docker and Docker Compose on target machine
