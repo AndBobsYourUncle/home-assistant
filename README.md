@@ -29,7 +29,7 @@ This is a complete solution that will get you all set up and ready to install th
 * Clone this repository and go into the cloned repository folder:
 	* `git clone https://github.com/AndBobsYourUncle/home-assistant`
 	* `cd home-assistant`
-* Run `docker-compose up -d` (You will have to wait a long time for SSL certificates to be generated)
+* Run `docker-compose up -d` (You will have to wait a long time for SSL certificates to be generated. You can check the status by running `docker logs lets-encrypt`)
 * Set a Home Assistant password:
 	* Run `sudo nano home-assistant/configuration.yaml`
 	* Set the `api_password` to match the `HOME_ASSISTANT_PASSWORD` environment variable you chose.
