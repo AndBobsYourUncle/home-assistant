@@ -42,16 +42,25 @@ services:
     volumes:
       - ./home-assistant:/config
     environment:
-      - VIRTUAL_HOST=raspberrypi.local
+      - VIRTUAL_HOST=${HOME_ASSISTANT_HOST}
       - VIRTUAL_PORT=8123
-      - LETSENCRYPT_HOST=raspberrypi.local
-      - LETSENCRYPT_EMAIL=theboss@raspberrypi.local
+      - LETSENCRYPT_HOST=${HOME_ASSISTANT_HOST}
+      - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
   noip:
     image: andbobsyouruncle/rpi-noip-docker
     container_name: noip
+    restart: always
     environment:
       - NOIP_USER=${NOIP_USER}
       - NOIP_PASSWORD=${NOIP_PASSWORD}
+  rpi-homebridge:
+    image: andbobsyouruncle/rpi-homebridge-homeassistant
+    container_name: rpi-homebridge
+    network_mode: host
+    restart: always
+    environment:
+      - HOME_ASSISTANT_URL=${HOME_ASSISTANT_URL}
+      - HOME_ASSISTANT_PASSWORD=${HOME_ASSISTANT_PASSWORD}
 
 networks:
   nginx:
