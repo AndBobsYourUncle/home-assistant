@@ -15,6 +15,9 @@ This is a complete solution that will get you all set up and ready to install th
 * Install Docker and Docker Compose on Raspberry PI:
 	* Docker installation on PI: [RPI Docker Installation](http://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/)
 	* Docker-Compose: [RPI Docker Compose Installation](https://www.berthon.eu/2017/getting-docker-compose-on-raspberry-pi-arm-the-easy-way/)
+* Create the necessary Docker networks for the Docker Compose file:
+	* `docker network create nginx`
+	* `docker network create home-assistant`	
 * Setup a NoIP account, and register any hostname you'd like.
 * Set global environment variables for these things:
 	* `HOME_ASSISTANT_HOST` (NoIP hostname)
