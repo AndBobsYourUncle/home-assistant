@@ -6,7 +6,8 @@ This is a complete solution that will get you all set up and ready to install th
 ### Technology Stack
 
 * Home Assistant
-* Nginx, and a docker reverse proxy, to allow the Home Assistant to be reachable on a hostname.
+* Homebridge with Home Assistant plugin to make all devices in Home Assistant Siri-compatible
+* Nginx, and a docker reverse proxy, to allow the Home Assistant to be reachable on a hostname
 * LetsEncrypt for auto-generating SSL certificates for the docker container running Home Assistant
 * NoIP docker container to automatically send your home's IP address to NoIP
 
