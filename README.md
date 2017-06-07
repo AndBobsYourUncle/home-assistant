@@ -12,7 +12,7 @@ This is a complete solution that will get you all set up and ready to install th
 * NoIP docker container to automatically send your home's IP address to NoIP
 
 ## Installing
-* Install Docker and Docker Compose on target machine:
+* Install Docker and Docker Compose on Raspberry PI:
 	* Docker installation on PI: [RPI Docker Installation](http://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/)
 	* Docker-Compose: [RPI Docker Compose Installation](https://www.berthon.eu/2017/getting-docker-compose-on-raspberry-pi-arm-the-easy-way/)
 * Setup a NoIP account, and register any hostname you'd like.
