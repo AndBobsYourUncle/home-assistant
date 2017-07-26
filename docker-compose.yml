@@ -66,8 +66,6 @@ services:
       - VIRTUAL_PORT=8123
       - LETSENCRYPT_HOST=${HOME_ASSISTANT_HOST}
       - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
-    log_opt:
-      max-size: 50m
   noip:
     image: andbobsyouruncle/rpi-noip-docker
     container_name: noip
