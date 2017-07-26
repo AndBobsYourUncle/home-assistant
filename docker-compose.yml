@@ -31,7 +31,7 @@ services:
       - ./certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
   mqtt:
-    image: matteocollina/mosca
+    image: andbobsyouruncle/rpi-mosca
     container_name: mqtt
     ports:
       - 1883:1883
