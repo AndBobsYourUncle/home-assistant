@@ -30,6 +30,26 @@ services:
     volumes:
       - ./certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
+  mqtt:
+    image: matteocollina/mosca
+    container_name: mqtt
+    ports:
+      - 1883:1883
+    networks:
+      - home-assistant
+  mqtt-bridge:
+    image: stjohnjohnson/smartthings-mqtt-bridge
+    container_name: mqtt-bridge
+    volumes:
+      - ./mqtt-bridge:/config
+    networks:
+      - nginx
+      - home-assistant
+    environment:
+      - VIRTUAL_HOST=${MQTT_BRIDGE_HOST}
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=${MQTT_BRIDGE_HOST}
+      - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
   home-assistant:
     image: andbobsyouruncle/rpi-home-assistant
     container_name: home-assistant
@@ -46,6 +66,8 @@ services:
       - VIRTUAL_PORT=8123
       - LETSENCRYPT_HOST=${HOME_ASSISTANT_HOST}
       - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
+    log_opt:
+      max-size: 50m
   noip:
     image: andbobsyouruncle/rpi-noip-docker
     container_name: noip
