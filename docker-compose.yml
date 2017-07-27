@@ -38,7 +38,7 @@ services:
     networks:
       - home-assistant
   mqtt-bridge:
-    image: stjohnjohnson/smartthings-mqtt-bridge
+    image: andbobsyouruncle/rpi-smartthings-mqtt-bridge
     container_name: mqtt-bridge
     volumes:
       - ./mqtt-bridge:/config
