@@ -43,13 +43,9 @@ services:
     volumes:
       - ./mqtt-bridge:/config
     networks:
-      - nginx
       - home-assistant
-    environment:
-      - VIRTUAL_HOST=${MQTT_BRIDGE_HOST}
-      - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=${MQTT_BRIDGE_HOST}
-      - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
+    ports:
+      - 1234:8080
   home-assistant:
     image: andbobsyouruncle/rpi-home-assistant
     container_name: home-assistant
