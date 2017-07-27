@@ -33,6 +33,7 @@ services:
   mqtt:
     image: andbobsyouruncle/rpi-mosca
     container_name: mqtt
+    restart: always
     ports:
       - 1883:1883
     networks:
@@ -40,6 +41,7 @@ services:
   mqtt-bridge:
     image: andbobsyouruncle/rpi-smartthings-mqtt-bridge
     container_name: mqtt-bridge
+    restart: always
     volumes:
       - ./mqtt-bridge:/config
     networks:
