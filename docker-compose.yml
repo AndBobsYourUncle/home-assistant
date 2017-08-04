@@ -64,13 +64,6 @@ services:
       - VIRTUAL_PORT=8123
       - LETSENCRYPT_HOST=${HOME_ASSISTANT_HOST}
       - LETSENCRYPT_EMAIL=${LETS_ENCRYPT_EMAIL}
-  noip:
-    image: andbobsyouruncle/rpi-noip-docker
-    container_name: noip
-    restart: always
-    environment:
-      - NOIP_USER=${NOIP_USER}
-      - NOIP_PASSWORD=${NOIP_PASSWORD}
   rpi-homebridge:
     image: andbobsyouruncle/rpi-homebridge-homeassistant
     container_name: rpi-homebridge
